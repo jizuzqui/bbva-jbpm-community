@@ -32,4 +32,3 @@ docker run -p 8080:8080 -p 8001:8001 -p 8082:8082 -p 9990:9990 \
     --mount source=jbpm-data,target=/opt/jboss/data/ \
     --mount source=jbpm-user-group-data,target=$JBOSS_HOME/standalone/configuration/ \
     -d --name $JBPM_CONTAINER_NAME $JBPM_IMAGE_NAME:$JBPM_BBVA_IMAGE_VERSION
-#    -d --name $JBPM_CONTAINER_NAME $JBPM_IMAGE_NAME:$JBPM_BBVA_IMAGE_VERSION
