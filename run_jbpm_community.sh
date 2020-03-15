@@ -23,6 +23,7 @@ mkdir -p $JBPM_PERSISTENT_DIR/repositories/mvn_home
 mkdir -p $JBPM_PERSISTENT_DIR/data
 mkdir -p $JBPM_PERSISTENT_DIR/user_group_data
 
+# Downloading latest image version...
 docker pull $JBPM_IMAGE_NAME:$JBPM_BBVA_IMAGE_VERSION 
 
 docker run -p 8080:8080 -p 8001:8001 -p 8082:8082 -p 9990:9990 \
