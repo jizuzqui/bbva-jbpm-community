@@ -29,7 +29,7 @@ docker pull $JBPM_IMAGE_NAME:$JBPM_BBVA_IMAGE_VERSION
 
 # Runing jBPM docker image
 docker run -p 8080:8080 -p 8001:8001 -p 8082:8082 -p 9990:9990 \
-    -m 4096m --cpus=3 \
+    -m 3600m --cpus=2 \
     --mount source=jbpm-repositories,target=/opt/jboss/.m2/ \
     --mount source=jbpm-repositories,target=/opt/jboss/repositories/ \
     --mount source=jbpm-data,target=/opt/jboss/data/ \
