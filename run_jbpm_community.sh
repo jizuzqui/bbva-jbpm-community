@@ -1,8 +1,10 @@
 #!/bin/bash
 JBPM_PERSISTENT_DIR=$1
 JBPM_BBVA_IMAGE_VERSION=$2
-JBPM_IMAGE_NAME=jizuzquiza/jbpm-bbva-holding
-JBPM_CONTAINER_NAME=jbpm-bbva-holding
+#JBPM_IMAGE_NAME=jizuzquiza/jbpm-bbva-holding
+#JBPM_CONTAINER_NAME=jbpm-bbva-holding
+JBPM_IMAGE_NAME=jbpm-bbva-community-test
+JBPM_CONTAINER_NAME=jbpm-bbva-community-test
 JBOSS_HOME=/opt/jboss/wildfly
 
 if [ -z "$JBPM_PERSISTENT_DIR" ]
@@ -22,16 +24,17 @@ mkdir -p $JBPM_PERSISTENT_DIR/logs
 mkdir -p $JBPM_PERSISTENT_DIR/repositories/mvn_home
 mkdir -p $JBPM_PERSISTENT_DIR/data
 mkdir -p $JBPM_PERSISTENT_DIR/user_group_data
+mkdir -p $JBPM_PERSISTENT_DIR/mock-services
 
 # Downloading latest image version...
 docker pull $JBPM_IMAGE_NAME:$JBPM_BBVA_IMAGE_VERSION 
 
 # Runing jBPM docker image
 docker run -p 8080:8080 -p 8001:8001 -p 8082:8082 -p 9990:9990 \
-    -m 4096m --cpus=2 \
-    --mount source=jbpm-logs,target=$JBOSS_HOME/standalone/log/ \
+    -m 4096m --cpus=3 \
     --mount source=jbpm-repositories,target=/opt/jboss/.m2/ \
     --mount source=jbpm-repositories,target=/opt/jboss/repositories/ \
     --mount source=jbpm-data,target=/opt/jboss/data/ \
     --mount source=jbpm-user-group-data,target=$JBOSS_HOME/standalone/configuration/ \
+    --mount source=jbpm-mock-services,target=/opt/jboss/mock-server/services/ \
     -d --name $JBPM_CONTAINER_NAME $JBPM_IMAGE_NAME:$JBPM_BBVA_IMAGE_VERSION
