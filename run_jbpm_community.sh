@@ -1,10 +1,8 @@
 #!/bin/bash
 JBPM_PERSISTENT_DIR=$1
 JBPM_BBVA_IMAGE_VERSION=$2
-#JBPM_IMAGE_NAME=jizuzquiza/jbpm-bbva-holding
-#JBPM_CONTAINER_NAME=jbpm-bbva-holding
-JBPM_IMAGE_NAME=jbpm-bbva-community-test
-JBPM_CONTAINER_NAME=jbpm-bbva-community-test
+JBPM_IMAGE_NAME=jizuzquiza/jbpm-bbva-holding
+JBPM_CONTAINER_NAME=jbpm-bbva-holding
 JBOSS_HOME=/opt/jboss/wildfly
 
 if [ -z "$JBPM_PERSISTENT_DIR" ]
