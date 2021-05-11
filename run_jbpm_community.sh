@@ -36,7 +36,7 @@ mkdir -p $JBPM_PERSISTENT_DIR/mock-services
 #docker pull $JBPM_IMAGE_NAME:$JBPM_BBVA_IMAGE_VERSION 
 
 # Runing jBPM docker image
-#docker run -p 8080:8080 -p 8001:8001 -p 8082:8082 -p 9990:9990 -p 8787:8787 -p 1080:1080 -p 9092:9092 -p 8090:8090 \
+docker run -p 8080:8080 -p 8001:8001 -p 8082:8082 -p 9990:9990 -p 8787:8787 -p 1080:1080 -p 9092:9092 -p 8090:8090 \
     -m 4096m --cpus=$CPUS_CONTAINER \
     --mount source=jbpm-repositories,target=/opt/jboss/.m2/ \
     --mount source=jbpm-repositories,target=/opt/jboss/repositories/ \
